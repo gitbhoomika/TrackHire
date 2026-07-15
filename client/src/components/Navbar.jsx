@@ -27,9 +27,12 @@ function Navbar() {
 
                     {token ? (
                         <>
-                            <span className="text-gray-600 font-medium">
-                                Dashboard
-                            </span>
+                           <Link
+    to="/dashboard"
+    className="text-gray-700 hover:text-blue-600 font-medium"
+>
+    Dashboard
+</Link>
 
                             <button
                                 onClick={handleLogout}
@@ -37,6 +40,18 @@ function Navbar() {
                             >
                                 Logout
                             </button>
+                            <Link
+    to="/analytics"
+    className="text-gray-700 hover:text-blue-600 font-medium"
+>
+    Analytics
+</Link>
+                            <Link
+    to="/ai"
+    className="text-gray-700 hover:text-blue-600 font-medium"
+>
+    AI Assistant
+</Link>
                         </>
                     ) : (
                         <>

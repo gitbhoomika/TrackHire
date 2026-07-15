@@ -259,9 +259,26 @@ const offeredCount = applications.filter(
 >
             {showForm ? 'Hide Form' : '+ Add Application'}
         </button></div></div>
-        { showForm && (
-            <form onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4">
+       {showForm && (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+
+        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 relative">
+
+            <button
+                onClick={() => setShowForm(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
+            >
+                ✕
+            </button>
+
+            <h2 className="text-2xl font-bold mb-6">
+                Add Application
+            </h2>
+
+            <form
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            >
                 <div>
                     <label htmlFor="company"
                     className="border rounded-lg px-4 py-2 w-full">Company:</label>
@@ -270,6 +287,7 @@ const offeredCount = applications.filter(
                         id="company"
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
+                         className="w-full border border-gray-300 rounded-xl px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div>
@@ -280,6 +298,7 @@ const offeredCount = applications.filter(
                         id="position"
                         value={position}
                         onChange={(e) => setPosition(e.target.value)}
+                         className="w-full border border-gray-300 rounded-xl px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div>
@@ -289,6 +308,7 @@ const offeredCount = applications.filter(
                         id="status"
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
+                        className="w-full border border-gray-300 rounded-xl px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                         <option value="Pending">Pending</option>
                         <option value="Interview">Interview</option>
@@ -299,14 +319,17 @@ const offeredCount = applications.filter(
                 <div className="col-span-2">
     <button
         type="submit"
-        className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition"
     >
         Add Application
     </button>
 </div>
+</form>
 
-            </form>
-            )}
+        </div>
+
+    </div>
+)}
               <div className="space-y-4">
                 
                 {filteredApplications.map((app) => (
